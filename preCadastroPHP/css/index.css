@@ -179,10 +179,7 @@ body, input, button {
 
     padding: 10px;  
 
-    -webkit-transition: all 0.40s ease-in-out;
-    -moz-transition: all 0.40s ease-in-out;
-    -ms-transition: all 0.40s ease-in-out;
-    -o-transition: all 0.40s ease-in-out;
+    transition: all 0.40s ease-in-out;
 
 }
 
@@ -220,6 +217,32 @@ body, input, button {
 
 }
 
+
+.preCadastro-container .esquerda .curtaindown_blocked{
+    color: black; /* button text color */
+    outline: none;
+    background: transparent;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    border-bottom: 4px solid #eee;
+    letter-spacing: 3px;
+    padding: 8px 10px; 
+    text-transform: uppercase;
+    font: bold 18px 'Ubuntu', Helvetica, sans-serif; /* use google font */
+    line-height: 2;
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    text-decoration: none; /* remove underline if using A instead of BUTTON tag */
+    overflow: hidden;
+    transition: all .5s;
+    z-index: 0;
+    width: 150px;
+    background: rgba(104, 164, 199, 0.5); /* button default background color */
+    cursor: not-allowed;
+  }
 
 
 .preCadastro-container .esquerda .curtaindown{
@@ -259,7 +282,7 @@ body, input, button {
 
 
 .preCadastro-container .esquerda .curtaindown:before,
-.curtaindown:after{
+.preCadastro-container .esquerda .curtaindown:after{
     content: '';
     position: absolute;
     left: 0;
@@ -278,7 +301,7 @@ body, input, button {
 }
 
 .preCadastro-container .esquerda .curtaindown:hover:before,
-.curtaindown:hover:after{
+.preCadastro-container .esquerda .curtaindown:hover:after{
     transform: translate3D(0,-50%,0);
     transition: all .5s;
 }
@@ -286,8 +309,7 @@ body, input, button {
 .preCadastro-container .esquerda .curtaindown:hover:after{
     transform: translate3D(0,50%,0);
 }
-  
-  
+
   /* //// Default effect: Slide from Top  //// */
 
 
@@ -310,67 +332,7 @@ body, input, button {
 
 
 
-.preCadastro-container .esquerda  #pergunta1:not(:checked) > label {
-
-    cursor:pointer;
-
-    float: right;
-
-    width: 31px;
-
-    height: 30px;
-
-    display: block;  
-
-    color: rgba(119, 140, 153, 0.4);
-
-    line-height: 33px;
-
-    text-align: center; 
-
-}
-
-.preCadastro-container .esquerda  #pergunta2:not(:checked) > label {
-
-    cursor:pointer;
-
-    float: right;
-
-    width: 31px;
-
-    height: 30px;
-
-    display: block;  
-
-    color: rgba(119, 140, 153, 0.4);
-
-    line-height: 33px;
-
-    text-align: center; 
-
-}
-
-.preCadastro-container .esquerda  #pergunta3:not(:checked) > label {
-
-    cursor:pointer;
-
-    float: right;
-
-    width: 31px;
-
-    height: 30px;
-
-    display: block;  
-
-    color: rgba(119, 140, 153, 0.4);
-
-    line-height: 33px;
-
-    text-align: center; 
-
-}
-
-.preCadastro-container .esquerda  #pergunta4:not(:checked) > label {
+.preCadastro-container .esquerda  .rating:not(:checked) > label {
 
     cursor:pointer;
 
@@ -444,7 +406,7 @@ body, input, button {
 
   /* - - - - - RATE */
 
-.preCadastro-container .esquerda  #pergunta1 {
+.preCadastro-container .esquerda  .rating {
 
     top: -65px;
 
@@ -454,7 +416,7 @@ body, input, button {
 
 
 
-.preCadastro-container .esquerda  #pergunta1:not(:checked) > label {
+.preCadastro-container .esquerda  .rating > label {
 
    cursor:pointer;
 
@@ -476,224 +438,33 @@ body, input, button {
 
 
 
-.preCadastro-container .esquerda #pergunta1:not(:checked) > label:hover,
+.preCadastro-container .esquerda .rating > label:hover,
 
-.preCadastro-container .esquerda  #pergunta1:not(:checked) > label:hover ~ label {
-
-   color: rgba(0, 135, 211, .6);
-
-}
-
-.preCadastro-container .esquerda  #pergunta1 > input:checked + label:hover,
-
-.preCadastro-container .esquerda  #pergunta1 > input:checked + label:hover ~ label,
-
-.preCadastro-container .esquerda  #pergunta1 > input:checked ~ label:hover,
-
-.preCadastro-container .esquerda  #pergunta1 > input:checked ~ label:hover ~ label,
-
-.preCadastro-container .esquerda  #pergunta1 > label:hover ~ input:checked ~ label {
-
-   color: rgba(0, 135, 211, .8);
-
-}
-
-.preCadastro-container .esquerda  #pergunta1 > input:checked ~ label {
-
-   color: rgb(0, 135, 211);
-
-}
-
-
-
-.preCadastro-container .esquerda  #pergunta2 {
-
-    top: -65px;
-
-    font-size: 35px;  
-
-}
-
-
-
-.preCadastro-container .esquerda  #pergunta2:not(:checked) > label {
-
-   cursor:pointer;
-
-   float: right;
-
-   width: 31px;
-
-   height: 30px;
-
-   display: block;
-
-   color: rgba(119, 140, 153, 0.4);
-
-   line-height: 33px;
-
-   text-align: center;
-
-}
-
-
-
-.preCadastro-container .esquerda #pergunta2:not(:checked) > label:hover,
-
-.preCadastro-container .esquerda  #pergunta2:not(:checked) > label:hover ~ label {
+.preCadastro-container .esquerda  .rating > label:hover ~ label {
 
    color: rgba(0, 135, 211, .6);
 
 }
 
-.preCadastro-container .esquerda  #pergunta2 > input:checked + label:hover,
+.preCadastro-container .esquerda  .rating > input:checked + label:hover,
 
-.preCadastro-container .esquerda  #pergunta2 > input:checked + label:hover ~ label,
+.preCadastro-container .esquerda  .rating > input:checked + label:hover ~ label,
 
-.preCadastro-container .esquerda  #pergunta2 > input:checked ~ label:hover,
+.preCadastro-container .esquerda  .rating > input:checked ~ label:hover,
 
-.preCadastro-container .esquerda  #pergunta2 > input:checked ~ label:hover ~ label,
+.preCadastro-container .esquerda  .rating > input:checked ~ label:hover ~ label,
 
-.preCadastro-container .esquerda  #pergunta2 > label:hover ~ input:checked ~ label {
-
-   color: rgba(0, 135, 211, .8);
-
-}
-
-.preCadastro-container .esquerda  #pergunta2 > input:checked ~ label {
-
-   color: rgb(0, 135, 211);
-
-}
-
-
-
-.preCadastro-container .esquerda  #pergunta3 {
-
-    top: -65px;
-
-    font-size: 35px;  
-
-}
-
-
-
-.preCadastro-container .esquerda  #pergunta3:not(:checked) > label {
-
-   cursor:pointer;
-
-   float: right;
-
-   width: 31px;
-
-   height: 30px;
-
-   display: block;
-
-   color: rgba(119, 140, 153, 0.4);
-
-   line-height: 33px;
-
-   text-align: center;
-
-}
-
-
-
-.preCadastro-container .esquerda #pergunta3:not(:checked) > label:hover,
-
-.preCadastro-container .esquerda  #pergunta3:not(:checked) > label:hover ~ label {
-
-   color: rgba(0, 135, 211, .6);
-
-}
-
-.preCadastro-container .esquerda  #pergunta3 > input:checked + label:hover,
-
-.preCadastro-container .esquerda  #pergunta3 > input:checked + label:hover ~ label,
-
-.preCadastro-container .esquerda  #pergunta3 > input:checked ~ label:hover,
-
-.preCadastro-container .esquerda  #pergunta3 > input:checked ~ label:hover ~ label,
-
-.preCadastro-container .esquerda  #pergunta3 > label:hover ~ input:checked ~ label {
+.preCadastro-container .esquerda  .rating > label:hover ~ input:checked ~ label {
 
    color: rgba(0, 135, 211, .8);
 
 }
 
-.preCadastro-container .esquerda  #pergunta3 > input:checked ~ label {
+.preCadastro-container .esquerda  .rating > input:checked ~ label {
 
    color: rgb(0, 135, 211);
 
 }
-
-
-
-.preCadastro-container .esquerda  #pergunta4 {
-
-    top: -65px;
-
-    font-size: 35px;  
-
-}
-
-
-
-.preCadastro-container .esquerda  #pergunta4:not(:checked) > label {
-
-   cursor:pointer;
-
-   float: right;
-
-   width: 31px;
-
-   height: 30px;
-
-   display: block;
-
-   color: rgba(119, 140, 153, 0.4);
-
-   line-height: 33px;
-
-   text-align: center;
-
-}
-
-
-
-.preCadastro-container .esquerda #pergunta4:not(:checked) > label:hover,
-
-.preCadastro-container .esquerda  #pergunta4:not(:checked) > label:hover ~ label {
-
-   color: rgba(0, 135, 211, .6);
-
-}
-
-.preCadastro-container .esquerda  #pergunta4 > input:checked + label:hover,
-
-.preCadastro-container .esquerda  #pergunta4 > input:checked + label:hover ~ label,
-
-.preCadastro-container .esquerda  #pergunta4 > input:checked ~ label:hover,
-
-.preCadastro-container .esquerda  #pergunta4 > input:checked ~ label:hover ~ label,
-
-.preCadastro-container .esquerda  #pergunta4 > label:hover ~ input:checked ~ label {
-
-   color: rgba(0, 135, 211, .8);
-
-}
-
-.preCadastro-container .esquerda  #pergunta4 > input:checked ~ label {
-
-   color: rgb(0, 135, 211);
-
-}
-
-
-
-
-
 
 
 @media (max-width: 1450px){
