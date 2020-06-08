@@ -10,10 +10,10 @@ if (isset($_POST['btn_salvar'])) {
     $pergunta2 = 0;
     $pergunta3 = 0;
     $pergunta4 = 0;
-    $pergunta1 = isset($_POST['pergunta1']);
-    $pergunta2 = isset($_POST['pergunta2']);
-    $pergunta3 = isset($_POST['pergunta3']);
-    $pergunta4 = isset($_POST['pergunta4']);
+    if(isset($_POST['pergunta1'])) { $pergunta1 = $_POST['pergunta1']; } 
+    if(isset($_POST['pergunta2'])) { $pergunta2 = $_POST['pergunta2']; } 
+    if(isset($_POST['pergunta3'])) { $pergunta3 = $_POST['pergunta3']; } 
+    if(isset($_POST['pergunta4'])) { $pergunta4 = $_POST['pergunta4']; } 
     $sugestao = $_POST['sugestao'];
 
     $sql = "INSERT INTO pesquisa (nome, email, idade, pergunta1, pergunta2, pergunta3, pergunta4, sugestao) VALUES (:nome, :email, :idade, :pergunta1, :pergunta2, :pergunta3, :pergunta4, :sugestao) ";
