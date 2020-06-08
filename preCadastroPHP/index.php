@@ -108,10 +108,7 @@
 
                     </section>
 
-
-
-                    <p>De aquele belo trato ͡° ͜ʖ ͡° na sua skin</p>
-
+                    <p>Te acompanhe naquela dive suicida spamando maestria igual maluco</p>
 
                     <section id="pergunta3" class="rating">
 
@@ -147,9 +144,7 @@
 
                     </section>
 
-
-
-                    <p>Te acompanhe naquela dive suicida spamando maestria igual maluco</p>
+                    <p>Dê aquele belo trato ͡° ͜ʖ ͡° na sua skin</p>
 
                     <section id="pergunta4" class="rating">
 

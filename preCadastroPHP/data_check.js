@@ -22,7 +22,7 @@ $(document).ready(function () {
      * Abilitar e Desabilitar o botão de envio de acordo com a validade dos campos
      */
     function btn_change() {
-        if (email_field.is_valid && nome_field.is_valid && nome_field.is_valid) {
+        if (email_field && nome_field.is_valid && idade_field.is_valid) {
             btn_enviar.attr('disabled', false)
             btn_enviar.removeClass('curtaindown_blocked')
             btn_enviar.addClass('curtaindown')
