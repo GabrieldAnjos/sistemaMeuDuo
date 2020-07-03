@@ -9,7 +9,7 @@ const UserSchema = new Schema({
         type: String,
         required: true,
     },
-    profileIcon: Number,
+    profileIconId: Number,
     summonerLevel: Number,
     league: [
         {
