@@ -18,9 +18,30 @@
     flex-direction: column;
 }
 
-.main-container ul li img {
-    max-width: 100%;
+.main-container ul li .emblem-div {
+    display: flex;
+    flex-direction: row;
+}
+
+.main-container ul li .emblem-div div {
+    margin: 10px;
+}
+
+div.tier-name{
+    text-align: center;
+    font-size: 18px;
+    color: #333;
+}
+
+.main-container ul li img.emblem {
+    width: 100px;
+    height: 110px;
+    align-self: center;
     border-radius: 5px 5px 0 0;
+}
+.main-container ul li img.icon {
+    width: 70px;
+    height: 70px;
 }
 
 .main-container ul li footer {
