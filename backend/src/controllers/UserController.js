@@ -1,12 +1,12 @@
-const axios = require('axios');
 const User = require('../models/User');
-const kayn = require('../kayn_api')
+const kayn = require('../services/kayn_api')
+const bcrypt= require('bcryptjs');
 
 module.exports = {
     async index(req, res){
-        const { userid } = req.headers;
+        const user  = req.userId;   
 
-        const user_obj = await User.findById(userid);
+        const user_obj = await User.findById(user);
         
         if(!user_obj)
             return res.status(404).json({error: 'User not exist '})
@@ -23,11 +23,12 @@ module.exports = {
 
 
     async store(req, res) {
-        const { username, summonerName } = req.body;
+        const { username, summonerName, password } = req.body;
 
         const userExists = await User.findOne({ username });
 
         if (userExists) {
+            console.log('User already exists');
             return res.json(userExists);
         }
 
@@ -41,15 +42,17 @@ module.exports = {
         //const response = await axios.get(`https://api.github.com/users/${username}`);
         //const { name, bio, avatar_url: avatar } = response.data;
 
+        const hash = await bcrypt.hash(password, 10);
+
         const user = await User.create({
             username,
+            password: hash,
             summonerName: name,
             profileIconId,
             summonerLevel,
             league
         })
 
-        console.log(user)
 
         return res.json(user);
     }

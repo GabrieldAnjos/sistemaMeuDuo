@@ -5,6 +5,11 @@ const UserSchema = new Schema({
         type: String,
         required: true,
     },
+    password: {
+        type: String,
+        required: true,
+        select: false,
+    },
     summonerName: {
         type: String,
         required: true,

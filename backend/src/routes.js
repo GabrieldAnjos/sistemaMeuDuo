@@ -1,17 +1,23 @@
 const express = require('express');
-const DevController = require('./controllers/DevController');
+
 const UserController = require('./controllers/UserController');
 const LikeController = require('./controllers/LikeController');
 const DislikeController = require('./controllers/DislikeController');
+const AuthController = require('./controllers/AuthController');
+
+const authMiddleware = require('./middlewares/auth');
 
 const routes = express.Router();
 
-routes.get('/devs', DevController.index);
-routes.post('/devs', DevController.store);
-routes.get('/user', UserController.index);
-routes.post('/user', UserController.store);
 
-routes.post('/devs/:devId/likes', LikeController.store);
-routes.post('/devs/:devId/dislikes', DislikeController.store);
+
+routes.post('/user', UserController.store);
+routes.post('/authenticate', AuthController.show);
+
+routes.use(authMiddleware); //As rotas abaixo precisam de token de autenticação
+
+routes.get('/user', UserController.index);
+routes.post('/user/:invocadorId/likes', LikeController.store);
+routes.post('/user/:invocadorId/dislikes', DislikeController.store);
 
 module.exports = routes; 

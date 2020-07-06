@@ -5,6 +5,10 @@
     text-align:  center;
 }
 
+.main-container .logo {
+    height: 100px;
+}
+
 .main-container ul {
     list-style: none;
     display: grid;
