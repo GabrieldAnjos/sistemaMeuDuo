@@ -22,7 +22,7 @@ function emblemURL(tierName) {
         return `/assets_riot/ranked-emblems/Emblem_${tierName}.png`
 }
 
-export default function Main({ match }) {
+export default function Main({ match, history }) {
     const [users, setUsers] = useState([]);
     const [matchUser, setMatchUser] = useState(null);
 
@@ -34,7 +34,7 @@ export default function Main({ match }) {
                 headers: {
                     authorization: token,
                 }
-            })
+            });
             //cria um objeto para acessar diretamente os dados do elo
             response.data.forEach((u) => {
                 const emblems = {}
@@ -95,28 +95,43 @@ export default function Main({ match }) {
             <Link to="/">
                 <img className="logo" src={logo} alt="MeuDuo" />
             </Link>
+            <button onClick={() => history.push(`/profile/${token}`)}>Meu Perfil</button>
             {users.length > 0 ? (
                 <ul>
                     {users.map(user => (
                         <li key={user._id}>
                             <footer>
                                 <div className="emblem-div">
-                                    <div >
+                                    <div className="emblem-mode">
                                         <img className="emblem" src={emblemURL(user.emblems.RANKED_SOLO_5x5.tier)} alt={user.emblems.RANKED_SOLO_5x5.tier} />
                                         <div className="tier-name" >
                                             {user.emblems.RANKED_SOLO_5x5.tier} {user.emblems.RANKED_SOLO_5x5.rank}
                                         </div>
                                     </div>
-                                    <div>
+                                    <div className="emblem-mode">
                                         <img className="emblem" src={emblemURL(user.emblems.RANKED_FLEX_SR.tier)} alt={user.emblems.RANKED_FLEX_SR.tier} />
                                         <div className="tier-name">
                                             {user.emblems.RANKED_FLEX_SR.tier} {user.emblems.RANKED_FLEX_SR.rank}
                                         </div>
                                     </div>
                                 </div>
-                                <img className="icon" src={iconURL(user.profileIconId)} alt="icone de invocador" />
-                                <p>{user.summonerLevel}</p>
-                                <strong>{user.username}</strong>
+                                
+                                <div className="infoUsers">
+                                    <div className="infoLol">
+                                        <img className="icon" src={iconURL(user.profileIconId)} alt="icone de invocador" />
+                                        <p>{user.summonerLevel}</p>
+                                        <strong>{user.username}</strong>
+                                    </div>
+                                    <div className="infoInsta">
+                                        <img className="icon" src={user.avatarInstagram} alt="avatar instagram" />
+                                        <p>{user.idade}</p>
+                                        <strong>{user.userInstagram}</strong>
+                                    </div>
+                                </div>
+                                
+
+                                
+                                
                             </footer>
 
                             <div className="buttons">

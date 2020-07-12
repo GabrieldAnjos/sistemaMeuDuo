@@ -3,8 +3,6 @@
     margin: 0 auto;
     padding: 50px 0;
     text-align:  center;
-    display: flex;
-    flex-direction: column;
 }
 
 .main-container .logo {
@@ -16,7 +14,7 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 30px;
-    margin-top: 15px;
+    margin-top: 50px;
 }
 
 .main-container ul li {
@@ -166,18 +164,6 @@ div.tier-name{
     font-size: 18px;
     margin-top: 30px;
     cursor: pointer;
-}
-
-.main-container button {
-    margin-top: 10px;
-    border: 0;
-    border-radius: 4px;
-    height: 48px;
-    font-size: 16px;
-    background: rgb(44, 97, 128);
-    color: #fff;
-    cursor: pointer;
-    width: 150px;
 }
 
 

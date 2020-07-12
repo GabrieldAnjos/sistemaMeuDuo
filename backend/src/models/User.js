@@ -10,6 +10,10 @@ const UserSchema = new Schema({
         required: true,
         select: false,
     },
+    email: {
+        type: String,
+        required: true,
+    },
     summonerName: {
         type: String,
         required: true,
@@ -23,6 +27,12 @@ const UserSchema = new Schema({
             rank: String,
         }
     ],
+    userInstagram: String,
+    avatarInstagram: String,
+    idade: {
+        type: Number,
+        required: true,
+    },
     likes: [{
         type: Schema.Types.ObjectId,
         ref: 'User',

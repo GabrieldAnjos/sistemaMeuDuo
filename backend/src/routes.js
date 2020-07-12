@@ -16,6 +16,7 @@ routes.post('/authenticate', AuthController.show);
 
 routes.use(authMiddleware); //As rotas abaixo precisam de token de autenticação
 
+routes.get('/user/profile', UserController.show);
 routes.get('/user', UserController.index);
 routes.post('/user/:invocadorId/likes', LikeController.store);
 routes.post('/user/:invocadorId/dislikes', DislikeController.store);
