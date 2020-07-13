@@ -5,6 +5,7 @@
     text-align:  center;
     display: flex;
     flex-direction: column;
+    font-family: Helvetica, Arial, sans-serif;
 }
 
 .main-container .logo {
@@ -55,6 +56,37 @@ div.tier-name{
     width: 70px;
     height: 70px;
     margin-bottom: 5px;
+}
+
+.main-container ul li img.icon.small {
+    width: 50px;
+    height: 50px;
+    
+}
+
+.matchlist-container{
+    width: 30vw;
+    padding: 30px;
+}
+
+.matchlist-container ul{
+    list-style-position:inside;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.matchlist-container ul li{
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #999;
+    background-color: #eee;
+}
+
+.matchlist-container ul li div{
+    align-self: center;
+    padding: 15px;
+    font-weight: bold;
 }
 
 .main-container ul li footer {

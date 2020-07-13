@@ -19,18 +19,18 @@ module.exports = {
     },
 
     async index(req, res){
-        const user  = req.userId;   
+        const user  = req.userId;
 
         const user_obj = await User.findById(user);
-        
-        if(!user_obj)
-            return res.status(404).json({error: 'User not exist '})
+
+        if (!user_obj)
+            return res.status(404).json({ error: 'User not exist ' })
 
         const users = await User.find({
             $and: [
                 { _id: { $ne: user_obj } },
                 { _id: { $nin: user_obj.likes } },
-                { _id: { $nin: user_obj.dislikes } }, 
+                { _id: { $nin: user_obj.dislikes } },
             ],
         })
         return res.json(users);
@@ -47,8 +47,8 @@ module.exports = {
             return res.json(userExists);
         }
 
-        //--------------------------------------
         //Riot API
+
         const { id, name, profileIconId, summonerLevel } = await kayn.Summoner.by.name(summonerName);
         const league = await kayn.League.Entries.by.summonerID(id);
 
@@ -58,12 +58,6 @@ module.exports = {
 
         const response = await axios.get(`https://www.instagram.com/${instagram}/?__a=1`);
         const { profile_pic_url, username: userInstagram } = response.data.graphql.user;
-
-
-
-        //const response = await axios.get(`https://api.github.com/users/${username}`);
-        //const { name, bio, avatar_url: avatar } = response.data;
-
         const hash = await bcrypt.hash(password, 10);
 
         const user = await User.create({

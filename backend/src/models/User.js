@@ -35,14 +35,18 @@ const UserSchema = new Schema({
     },
     likes: [{
         type: Schema.Types.ObjectId,
-        ref: 'User',
+        ref: 'User'
     }],
     dislikes: [{
         type: Schema.Types.ObjectId,
-        ref: 'User',
+        ref: 'User'
     }],
+    matches: [{
+        type: Schema.Types.ObjectId,
+        ref: 'User'
+    }]
 }, {
-    timestamps:true,
+    timestamps: true,
 });
 
 module.exports = model('User', UserSchema);

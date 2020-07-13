@@ -1,6 +1,10 @@
+
+
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+
+require('dotenv').config()
 
 const routes = require('./routes');
 
@@ -19,7 +23,7 @@ io.on('connection', socket => {
 
 });
 
-mongoose.connect('mongodb+srv://omnistack:34260359@cluster0-ofibf.mongodb.net/<dbname>?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser:true,
     useUnifiedTopology:true   
 });
