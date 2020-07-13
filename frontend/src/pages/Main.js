@@ -22,7 +22,7 @@ function emblemURL(tierName) {
         return `/assets_riot/ranked-emblems/Emblem_${tierName}.png`
 }
 
-export default function Main({ match }) {
+export default function Main({ match, history }) {
     const [users, setUsers] = useState([]);
     const [matches, setMatches] = useState([]);
     const [matchUser, setMatchUser] = useState(null);
@@ -35,6 +35,7 @@ export default function Main({ match }) {
                 headers: {
                     authorization: token,
                 }
+
             })
             //Formata dados do elo
             //-----------------------------
@@ -115,20 +116,21 @@ export default function Main({ match }) {
             <Link to="/">
                 <img className="logo" src={logo} alt="MeuDuo" />
             </Link>
+            <button onClick={() => history.push(`/profile/${token}`)}>Meu Perfil</button>
             {users.length > 0 ? (
                 <ul>
                     {users.map(user => (
                         <li key={user._id}>
                             <footer>
                                 <div className="emblem-div">
-                                    <div >
+                                    <div className="emblem-mode">
                                         <p>Solo</p>
                                         <img className="emblem" src={emblemURL(user.league_obj.solo.tier)} alt={user.league_obj.solo.tier} />
                                         <div className="tier-name" >
                                             {user.league_obj.solo.tier} {user.league_obj.solo.rank}
                                         </div>
                                     </div>
-                                    <div>
+                                    <div className="emblem-mode">
                                         <p>Flex</p>
                                         <img className="emblem" src={emblemURL(user.league_obj.flex.tier)} alt={user.league_obj.flex.tier} />
                                         <div className="tier-name">
@@ -136,9 +138,23 @@ export default function Main({ match }) {
                                         </div>
                                     </div>
                                 </div>
-                                <img className="icon" src={iconURL(user.profileIconId)} alt="icone de invocador" />
-                                <p>{user.summonerLevel}</p>
-                                <strong>{user.username}</strong>
+                                
+                                <div className="infoUsers">
+                                    <div className="infoLol">
+                                        <img className="icon" src={iconURL(user.profileIconId)} alt="icone de invocador" />
+                                        <p>{user.summonerLevel}</p>
+                                        <strong>{user.username}</strong>
+                                    </div>
+                                    <div className="infoInsta">
+                                        <img className="icon" src={user.avatarInstagram} alt="avatar instagram" />
+                                        <p>{user.idade}</p>
+                                        <strong>{user.userInstagram}</strong>
+                                    </div>
+                                </div>
+                                
+
+                                
+                                
                             </footer>
 
                             <div className="buttons">
